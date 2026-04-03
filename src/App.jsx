@@ -11,6 +11,7 @@ import ProgressView  from './components/dashboard/ProgressView'
 import InsightsView  from './components/dashboard/InsightsView'
 import AgentsView    from './components/dashboard/AgentsView'
 import TaskList      from './components/tasks/TaskList'
+import NotesPage from './pages/NotesPage';
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth()
@@ -59,6 +60,7 @@ function AppRoutes() {
         <Route path="progress" element={<ProgressView />} />
         <Route path="insights" element={<InsightsView />} />
         <Route path="agents"   element={<AgentsView   />} />
+        <Route path="/dashboard/notes" element={<NotesPage />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

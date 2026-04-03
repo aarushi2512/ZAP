@@ -82,3 +82,15 @@
   .animate-slide-up { animation: slideUp 0.35s cubic-bezier(0.4,0,0.2,1); }
   .animate-fade-in  { animation: fadeIn 0.25s ease; }
 }
+/* Focus Mode - Hide UI Elements */
+body.zap-focus-mode nav,
+body.zap-focus-mode aside,
+body.zap-focus-mode header,
+body.zap-focus-mode .sidebar,
+body.zap-focus-mode .top-bar {
+  display: none !important;
+}
+
+body.zap-focus-mode {
+  background-color: #faf9f6 !important;
+}

@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, BarChart2, Lightbulb, Bot, LogOut, Settings } from 'lucide-react'
+import { LayoutDashboard, BarChart2, Lightbulb, Bot, LogOut, Settings, BookOpen } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
+import { ZAP_ENABLED } from '../../lib/constants';
 
 const NAV = [
   { to: '/dashboard',           icon: LayoutDashboard, label: 'Today',    end: true  },
   { to: '/dashboard/progress',  icon: BarChart2,       label: 'Progress', end: false },
   { to: '/dashboard/insights',  icon: Lightbulb,       label: 'Insights', end: false },
   { to: '/dashboard/agents',    icon: Bot,             label: 'Agents',   end: false },
+  ...(ZAP_ENABLED ? [{ to: '/dashboard/notes', icon: BookOpen, label: 'Notes', end: false }] : []),
 ]
 
 const AREA_COLORS = {
