@@ -88,17 +88,36 @@ export default function AIAlert({ activeTasks }) {
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <button style={{
-              background: '#ea580c', color: '#ffffff',
-              border: 'none', borderRadius: 6, padding: '7px 14px',
-              fontSize: 13, fontWeight: 600, cursor: 'pointer',
-              transition: 'background 0.2s', width: '100%',
-              display: 'flex', justifyContent: 'center'
-            }}
-            onMouseEnter={e => e.currentTarget.style.background = '#c2410c'}
-            onMouseLeave={e => e.currentTarget.style.background = '#ea580c'}
+            <button 
+              onClick={() => {
+                const elements = document.querySelectorAll('.task-card-element');
+                elements.forEach(el => {
+                  el.style.transition = 'box-shadow 0.3s, transform 0.3s';
+                  el.style.boxShadow = '0 0 0 2px #ea580c, 0 4px 14px rgba(234, 88, 12, 0.15)';
+                  el.style.transform = 'translateX(4px)';
+                  setTimeout(() => {
+                    el.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)';
+                    el.style.transform = 'translateX(0)';
+                  }, 1500)
+                })
+              }}
+              style={{
+                background: '#fff7ed', color: '#ea580c',
+                border: '1px solid #fed7aa', borderRadius: 6, padding: '6px 12px',
+                fontSize: 13, fontWeight: 600, cursor: 'pointer',
+                transition: 'all 0.2s', width: '100%',
+                display: 'flex', justifyContent: 'center'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#ffedd5';
+                e.currentTarget.style.borderColor = '#fdba74';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = '#fff7ed';
+                e.currentTarget.style.borderColor = '#fed7aa';
+              }}
             >
-              Fix Schedule
+              Highlight Task
             </button>
             
             <div style={{ position: 'relative' }}>
