@@ -49,7 +49,7 @@ function SignOutModal({ onConfirm, onCancel }) {
         </button>
         <div style={{ fontSize:24, marginBottom:10 }}>👋</div>
         <h3 style={{ fontSize:16, fontWeight:600, color:'#0f172a', marginBottom:8 }}>
-          Sign out of QuestMind?
+          Sign out of ZAP?
         </h3>
         <p style={{ fontSize:13, color:'#64748b', lineHeight:1.6, marginBottom:22 }}>
           Your progress is saved automatically. You can sign back in any time.
@@ -117,7 +117,7 @@ export default function Sidebar({ onProfileOpen }) {
               fontFamily:'Fraunces, Georgia, serif',
               fontSize:17, color:'#0f172a', fontWeight:400, letterSpacing:'-0.02em',
             }}>
-              QuestMind
+              ZAP
             </span>
           </div>
           <p style={{ fontSize:11, color:'#94a3b8', marginTop:2, paddingLeft:16 }}>
