@@ -7,6 +7,7 @@ import {
   logout, resetPassword, updateDisplayName,
   updateUserPassword, reauthenticate, deleteCurrentUser,
 } from '../lib/auth'
+import { sendEmail } from '../utils/emailService';
 
 const AuthContext = createContext(null)
 
@@ -79,6 +80,11 @@ export function AuthProvider({ children }) {
         const p = defaultProfile(firebaseUser.uid, firebaseUser.displayName, firebaseUser.email, firebaseUser.photoURL)
         await setDoc(ref, p)
         setProfile(p)
+        
+        // 🎉 Send welcome email to new users
+        await sendEmail(firebaseUser.email, firebaseUser.displayName || 'ZAP User', {
+          message: 'Thanks for joining ZAP! Let\'s boost your productivity.'
+        })
       }
     } catch (err) {
       console.error('loadOrCreate:', err)
@@ -93,6 +99,12 @@ export function AuthProvider({ children }) {
     await setDoc(ref, p)
     setProfile(p)
     setUser({ ...fu, displayName })
+    
+    // 🎉 Send welcome email on registration
+    await sendEmail(email, displayName, {
+      message: 'Thanks for joining ZAP! Let\'s boost your productivity.'
+    })
+    
     return fu
   }
 
