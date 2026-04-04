@@ -17,6 +17,7 @@ import InsightsView  from './components/dashboard/InsightsView'
 import AgentsView    from './components/dashboard/AgentsView'
 import AISolver      from './components/dashboard/AISolver'
 import TaskList      from './components/tasks/TaskList'
+import NotesPage from './pages/NotesPage';
 
 // ── ZAP BLOCK 1: Feature Flag System ──────────────────────────────────────
 // Read from .env file: VITE_ZAP_ENABLED=true or false
@@ -77,6 +78,11 @@ function AppRoutes() {
         <Route index           element={<TodayView    />} />
         <Route path="tasks"    element={<TaskList     />} />
         <Route path="progress" element={<ProgressView />} />
+
+        <Route path="insights" element={<InsightsView />} />
+        <Route path="agents"   element={<AgentsView   />} />
+        <Route path="notes" element={<NotesPage />} />
+
         <Route path="insights"  element={<InsightsView />} />
         <Route path="agents"    element={<AgentsView   />} />
         <Route path="ai-solver" element={<AISolver     />} />
