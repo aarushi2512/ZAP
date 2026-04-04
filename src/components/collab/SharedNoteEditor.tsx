@@ -14,30 +14,45 @@ export default function SharedNoteEditor({ userId }: { userId: string }) {
   const [shareMsg, setShareMsg]         = useState('');
   const [copied, setCopied]             = useState(false);
 
-  useEffect(() => {
-    if (!activeNote) return;
-    const unsub = onSnapshot(doc(db, 'notes', activeNote.id), (snap) => {
-      if (snap.exists()) {
-        updateNoteContent(activeNote.id, snap.data().content);
-      }
-    });
-    return () => unsub();
-  }, [activeNote?.id]);
+useEffect(() => {
+  if (!activeNote) return;
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (!activeNote) return;
-    const content = e.target.value;
-    updateNoteContent(activeNote.id, content);
+  const unsub = onSnapshot(doc(db, 'notes', activeNote.id), (snap) => {
+    if (!snap.exists()) return;
 
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(async () => {
+    const data = snap.data();
+    const incoming = data.content || "";
+    const current = activeNote.content || "";
+
+    // ✅ Only update if different (handles new notes too)
+    if (incoming !== current) {
+      updateNoteContent(activeNote.id, incoming);
+    }
+  });
+
+  return () => unsub();
+}, [activeNote?.id]);
+
+const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  if (!activeNote) return;
+
+  const content = e.target.value;
+  updateNoteContent(activeNote.id, content);
+
+  if (debounceRef.current) clearTimeout(debounceRef.current);
+
+  debounceRef.current = setTimeout(async () => {
+    try {
       await updateDoc(doc(db, 'notes', activeNote.id), {
         content,
         lastEditedBy: userId,
         updatedAt: Date.now(),
       });
-    }, 500);
-  };
+    } catch (err) {
+      console.error("Update failed:", err);
+    }
+  }, 500);
+};
 
   const handleCopyId = () => {
     if (!activeNote) return;
@@ -58,8 +73,9 @@ export default function SharedNoteEditor({ userId }: { userId: string }) {
       setShareUid('');
       setShareEmail('');
     } catch (err) {
-      setShareMsg('❌ Failed. Make sure the UID is correct.');
-    } finally {
+  console.error(err); // ✅ ADD
+  setShareMsg('❌ Failed. Check UID or permissions.');
+} finally {
       setSharing(false);
     }
   };
@@ -144,7 +160,7 @@ export default function SharedNoteEditor({ userId }: { userId: string }) {
 
         {/* Editor */}
         <textarea
-          value={activeNote.content}
+          value={activeNote?.content || ""}
           onChange={handleChange}
           className="flex-1 w-full p-6 text-gray-700 text-base leading-relaxed resize-none focus:outline-none bg-transparent font-sans"
           placeholder="Start writing your thoughts..."

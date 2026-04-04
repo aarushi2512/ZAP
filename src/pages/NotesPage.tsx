@@ -16,6 +16,7 @@ export default function NotesPage() {
 
   useNotesLoader(userId);
   const { notes } = useCollabStore();
+  console.log("Loaded notes:", notes);
 
   const [showFocus, setShowFocus]       = useState(false);
   const [showNewNote, setShowNewNote]   = useState(false);
@@ -29,18 +30,23 @@ export default function NotesPage() {
   }, [notes]);
 
 const handleCreateNote = async () => {
+  if (!userId) {
+  console.error("User not authenticated");
+  return;
+}
   if (!newTitle.trim() || !newSubject.trim()) return;
   setCreating(true);
   try {
     console.log('Creating note with userId:', userId);
-    const docRef = await addDoc(collection(db, 'notes'), {
-      title:         newTitle.trim(),
-      subject:       newSubject.trim(),
-      content:       '',
-      collaborators: [userId],
-      lastEditedBy:  userId,
-      updatedAt:     Date.now(),
-    });
+const docRef = await addDoc(collection(db, 'notes'), {
+  title: newTitle.trim(),
+  subject: newSubject.trim(),
+  content: '',
+  owner: userId, // ✅ ADD THIS LINE
+  collaborators: [userId],
+  lastEditedBy: userId,
+  updatedAt: Date.now(),
+});
     
     console.log('Note created:', docRef.id);
     setNewTitle('');
