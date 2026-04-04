@@ -1,5 +1,9 @@
-# ZAP 🧠
+# ZAP - student-focused productivity enhancement🧠
 
+
+> AI-powered habit-tracking platform  
+> Theme: "Break the Loop, Create the Future" — Agentic AI Track
+> **"Deadlines messed up? We ZAP it."**
 > **Deadlines messed up? We ZAP it.** 
 
 [![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)](https://reactjs.org/)
