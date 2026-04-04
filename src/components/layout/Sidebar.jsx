@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../hooks/useAuth'
 import { useTasks } from '../../hooks/useTasks'
 import { format } from 'date-fns'
+
 const NAV = [
   { to: '/dashboard',           icon: LayoutDashboard, label: 'Today',     end: true  },
   { to: '/dashboard/progress',  icon: BarChart2,       label: 'Progress',  end: false },
