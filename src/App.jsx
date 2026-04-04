@@ -1,3 +1,7 @@
+// FILE: src/App.jsx
+// ACTION: Replace Entire
+// QUESTMIND INTEGRATION: Adds ZAP feature flag system (safe, no UI changes yet)
+
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -11,7 +15,21 @@ import TodayView     from './components/dashboard/TodayView'
 import ProgressView  from './components/dashboard/ProgressView'
 import InsightsView  from './components/dashboard/InsightsView'
 import AgentsView    from './components/dashboard/AgentsView'
+import AISolver      from './components/dashboard/AISolver'
 import TaskList      from './components/tasks/TaskList'
+
+// ── ZAP BLOCK 1: Feature Flag System ──────────────────────────────────────
+// Read from .env file: VITE_ZAP_ENABLED=true or false
+const ZAP_ENABLED = import.meta.env.VITE_ZAP_ENABLED === 'true'
+
+// Log which mode is active (check browser console)
+console.log(
+  '%c[QuestMind/ZAP]',
+  'font-weight:bold; color: #14b8a6;',
+  `ZAP_ENABLED = ${ZAP_ENABLED}`,
+  ZAP_ENABLED ? '— Running as: ZAP — "Deadlines messed up? We ZAP it."' : '— Running as: QuestMind — Habit intelligence'
+)
+// ── END ZAP Feature Flag ──────────────────────────────────────────────────
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth()
@@ -59,8 +77,9 @@ function AppRoutes() {
         <Route index           element={<TodayView    />} />
         <Route path="tasks"    element={<TaskList     />} />
         <Route path="progress" element={<ProgressView />} />
-        <Route path="insights" element={<InsightsView />} />
-        <Route path="agents"   element={<AgentsView   />} />
+        <Route path="insights"  element={<InsightsView />} />
+        <Route path="agents"    element={<AgentsView   />} />
+        <Route path="ai-solver" element={<AISolver     />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
