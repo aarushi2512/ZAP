@@ -3,7 +3,7 @@
 > AI-powered habit-tracking platform for Hackanova 5.0  
 > Theme: "Break the Loop, Create the Future" — Agentic AI Track
 
-## ✨ Features
+## ✨  Features
 
 - 🔐 **Firebase Authentication** — Email/Password + Google Sign-In
 - 📋 **Task Management** — Full CRUD with categories (Work, Health, Learning, Relationships)
