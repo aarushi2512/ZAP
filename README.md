@@ -1,4 +1,4 @@
-# 🎓 ZAP - Smart Deadline Planner for Students
+# ZAP 🧠
 
 > **Deadlines messed up? We ZAP it.** 
 
@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
-ZAP is a student-focused productivity enhancement layer, Smart Deadline Planner for Students. It adds academic planning, deadline management, zero-clash scheduling, it detects procrastination by students and has AI-powered study assistance.
+## ✨  Features
 
 ## 📖 Table of Contents
 
