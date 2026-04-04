@@ -1,125 +1,185 @@
 # ZAP 🧠
 
-> AI-powered habit-tracking platform for Hackanova 5.0  
-> Theme: "Break the Loop, Create the Future" — Agentic AI Track
+> **Deadlines messed up? We ZAP it.** 
+
+[![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646cff?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-Enabled-FFCA28?logo=firebase&logoColor=white)](https://firebase.google.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 ## ✨  Features
 
-- 🔐 **Firebase Authentication** — Email/Password + Google Sign-In
-- 📋 **Task Management** — Full CRUD with categories (Work, Health, Learning, Relationships)
-- 🔥 **Streak System** — Per-category streaks with Ice Streak protection
-- 🎮 **Gamification** — XP, levels, milestones, progress tracking
-- 📊 **Dashboard** — Today view, Progress analytics, Insights
-- 🤖 **AI Agent Architecture** — Pluggable agent system (Quest Master, Companion Bot, Stats Analyst)
-- 👤 **Profile System** — 6-tab profile modal (Account, Security, Photo, Preferences, Goals, Stats)
+## 📖 Table of Contents
 
-## 🛠️ Tech Stack
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Environment Setup](#-environment-setup)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Roadmap](#-roadmap)
+- [Team](#-team)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18 + Vite |
-| Styling | Tailwind CSS + Framer Motion |
-| Backend | Firebase (Auth, Firestore, Storage) |
-| Routing | React Router DOM v6 |
-| Icons | Lucide React |
-| Date Utils | date-fns |
 
-## Prerequisites
+---
+## Features
 
-- Node.js v18 or higher
-- Firebase account (free tier works)
-- VS Code (recommended)
+### Core Features
+- **Student Profile Management** - Track your school, major, and graduation
+- **Smart Task Management** - Organize tasks with priorities and deadlines
+- **Zero-Clash Detection** - Automatically detect conflicting deadlines
+- **Streak Tracking** - Build consistency with XP and level system
+- **Beautiful UI** - Clean, modern interface with Tailwind CSS
 
-## 🚀 Setup Instructions
+- **Collaboration** - Group projects and shared workspaces
+- **Focus Mode** - Pomodoro timer and deep work sessions
+- **AI Insights** - Smart recommendations and study agents
 
-### 1. Clone the repository
+
+---
+
+## Tech Stack
+
+| Category | Technology |
+|----------|-----------|
+| **Frontend** | React 18, Vite |
+| **Styling** | Tailwind CSS v4 |
+| **Backend** | Firebase (Auth, Firestore) |
+| **State** | React Context, Zustand |
+| **Routing** | React Router v6 |
+| **UI** | Framer Motion, Lucide Icons |
+
+
+---
+## Installation
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/questmind.git
-cd questmind
-```
+# Clone the repository
+git clone https://github.com/aarushi2512/ZAP.git
+cd ZAP
 
-### 2. Install dependencies
-```bash
+# Install dependencies
 npm install
-```
 
-### 3. Configure Firebase
-
-**a) Create Firebase project:**
-1. Go to https://console.firebase.google.com
-2. Create new project named `questmind`
-3. Enable Authentication → Email/Password + Google
-4. Create Firestore Database (test mode)
-5. Enable Storage (test mode)
-
-**b) Get your config:**
-1. Project Settings → General → Your apps → Web app (`</>`)
-2. Register app name `questmind-web`
-3. Copy the config values
-
-**c) Create environment file:**
-```bash
+# Create environment file
 cp .env.example .env
-```
-Open `.env` and fill in your Firebase values.
 
-### 4. Run development server
-```bash
+# Edit .env with your Firebase credentials
 npm run dev
-```
-Open http://localhost:5173
 
-### 5. Build for production
+ZAP is a student-focused productivity enhancement layer, Smart Deadline Planner for Students. It adds academic planning, deadline management, zero-clash scheduling, it detects procrastination by students and has AI-powered study assistance.
+
+
+## Project Structure
+ZAP/
+├──  src/
+│   ├── 📂 components/       # React components
+│   │   ├── auth/           # Login, Register, Onboarding
+│   │   ├── dashboard/      # Today, Progress, Insights, Agents
+│   │   ├── layout/         # Sidebar, Layout, Header
+│   │   └── tasks/          # TaskCard, TaskModal, TaskList
+│   ├── 📂 hooks/           # Custom React hooks
+│   ├── 📂 services/        # Firebase & API services
+│   ├── 📂 store/           # State management (Zustand)
+│   ├── 📂 types/           # Type definitions
+│   ├── 📂 utils/           # Helper functions
+│   ├── 📂 contexts/        # React contexts
+│   └──  pages/           # Page components
+├── 📂 public/              # Static assets
+├── firestore.rules         # Firebase security rules
+├── .env.example            # Environment template
+├── package.json
+└── README.md
+
+
+## Usage
 ```bash
+# Development server
+npm run dev
+
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## 📁 Project Structure
-```
-src/
-├── components/       # Reusable UI components
-│   ├── ui/          # Atomic: Button, Card, Modal, Input, Avatar, Badge
-│   ├── layout/      # Sidebar, Header, Layout wrapper
-│   ├── auth/        # Login, Register, PasswordReset
-│   ├── dashboard/   # Dashboard views (Today, Progress, Insights)
-│   ├── tasks/       # Task CRUD components
-│   ├── streaks/     # Streak display components
-│   └── profile/     # Profile modal with 6 tabs
-├── contexts/        # React Context (AuthContext)
-├── hooks/           # Custom hooks (useAuth, useTasks, useStreaks)
-├── pages/           # Route-level page components
-├── services/        # Firebase service layer (authService, taskService, streakService)
-└── utils/           # Pure utility functions (xpCalculator, streakCalculator, validation)
-```
 
-## 🤖 AI Agent Architecture
+## Features
 
-QuestMind uses a pluggable agent system designed for future Agentic AI integration:
+### Block 1: Foundation 
+- Student profile management (school, major, year, graduation)
+- Extended registration with academic details
+- Firestore security rules
+- Feature flag system (ZAP_ENABLED)
+- XP and level tracking
 
-| Agent | Role |
-|-------|------|
-| **Quest Master** | Breaks goals into adaptive micro-tasks |
-| **Companion Bot** | Motivational nudges, streak celebrations |
-| **Stats Analyst** | Pattern analysis, optimal timing suggestions |
-| **Reward Agent** | XP multipliers, achievement unlocks |
+### Block 2: Zero-Clash Engine 
+- Deadline tracking for tasks
+- Automatic clash detection
+- Priority management (critical, high, medium, low)
+- Time estimation per task
+- Urgency indicators
 
-## 🏆 Gamification System
+### Block 3: Collaboration 
+- Group project management
+- Shared notes and resources
+- Team task assignments
+- Role-based permissions
+- Collaborative workspaces
 
-- **XP** — earned by completing tasks (scaled by priority & category)
-- **Levels** — every 500 XP = 1 level up (1–100)
-- **Streaks** — tracked per category; consecutive daily completions
-- **Ice Streak** — miss one day without losing your streak (24h window)
-- **Milestones** — special badges at 7, 30, 100-day streaks
+### Block 4: Focus Mode 
+- Pomodoro timer integration
+- Focus session tracking
+- Distraction blocking
+- Deep work scheduling
+- Session analytics
 
-## Team
+### Block 5: AI & Insights 
+- AI-powered study agents
+- Predictive performance insights
+- Personalized recommendations
+- Smart rescheduling suggestions
+- Learning pattern analysis
 
-**QuestMind** — St. Francis Institute of Technology  
-Hackanova 5.0 — Agentic AI Track
+
+## Roadmap
+
+- [ ] Block 1: Foundation
+- [ ] Block 2: Zero-Clash Engine 
+- [ ] Block 3: Collaboration
+- [ ] Block 4: Focus Mode
+- [ ] Block 5: AI & Insights
 
 ## Contributing
 
+<<<<<<< HEAD
 1. Fork the repo
 2. Create your feature branch: `git checkout -b feature/amazing-feature`
 3. Commit changes: `git commit -m 'Add amazing feature'`
 4. Push to branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request 
+=======
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+## Team
+
+- **Aarushi Arora** - [@aarushi2512](https://github.com/aarushi2512)
+- **Swayam Kandarkar**
+- **Dhvani Mistry**
+- **Prishita Mali**
+
+
+## Acknowledgments
+
+- Icons by Lucide React
+- UI components with Framer Motion
+```
+>>>>>>> 24e1fd7bca6768e4c8dc509d393404816c5e1a25
