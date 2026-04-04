@@ -1,3 +1,7 @@
+// FILE: src/App.jsx
+// ACTION: Replace Entire
+// QUESTMIND INTEGRATION: Adds ZAP feature flag system (safe, no UI changes yet)
+
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -12,6 +16,19 @@ import ProgressView  from './components/dashboard/ProgressView'
 import InsightsView  from './components/dashboard/InsightsView'
 import AgentsView    from './components/dashboard/AgentsView'
 import TaskList      from './components/tasks/TaskList'
+
+// ── ZAP BLOCK 1: Feature Flag System ──────────────────────────────────────
+// Read from .env file: VITE_ZAP_ENABLED=true or false
+const ZAP_ENABLED = import.meta.env.VITE_ZAP_ENABLED === 'true'
+
+// Log which mode is active (check browser console)
+console.log(
+  '%c[QuestMind/ZAP]',
+  'font-weight:bold; color: #14b8a6;',
+  `ZAP_ENABLED = ${ZAP_ENABLED}`,
+  ZAP_ENABLED ? '— Running as: ZAP — "Deadlines messed up? We ZAP it."' : '— Running as: QuestMind — Habit intelligence'
+)
+// ── END ZAP Feature Flag ──────────────────────────────────────────────────
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth()
