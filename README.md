@@ -1,6 +1,6 @@
 # ZAP  🧠
 
-> AI-powered habit-tracking platform for Hackanova 5.0  
+> AI-powered habit-tracking platform  
 > Theme: "Break the Loop, Create the Future" — Agentic AI Track
 
 ## ✨ Features
