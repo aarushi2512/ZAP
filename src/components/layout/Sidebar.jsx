@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { LayoutDashboard, BarChart2, Lightbulb, Bot, LogOut, Settings, X, Brain } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { LayoutDashboard, BarChart2, Lightbulb, Bot, LogOut, Settings, BookOpen, X } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { useTasks } from '../../hooks/useTasks'
-import { ZAP_ENABLED } from '../../lib/constants';
+import { format } from 'date-fns'
 
 const NAV = [
-  { to: '/dashboard',          icon: LayoutDashboard, label: 'Today',    end: true  },
-  { to: '/dashboard/progress', icon: BarChart2,       label: 'Progress', end: false },
-  { to: '/dashboard/insights', icon: Lightbulb,       label: 'Insights', end: false },
-  { to: '/dashboard/agents',   icon: Bot,             label: 'Agents',   end: false },
-  ...(ZAP_ENABLED ? [{ to: '/dashboard/notes', icon: BookOpen, label: 'Notes', end: false }] : []),
+  { to: '/dashboard',           icon: LayoutDashboard, label: 'Today',     end: true  },
+  { to: '/dashboard/progress',  icon: BarChart2,       label: 'Progress',  end: false },
+  { to: '/dashboard/insights',  icon: Lightbulb,       label: 'Insights',  end: false },
+  { to: '/dashboard/agents',    icon: Bot,             label: 'Agents',    end: false },
+  { to: '/dashboard/ai-solver', icon: Brain,           label: 'AI Solver', end: false },
 ]
 
 function SignOutModal({ onConfirm, onCancel }) {
