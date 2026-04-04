@@ -23,7 +23,16 @@ export default function Auth() {
         >
           {/* Wordmark */}
           <Link to="/" className="flex items-center gap-2 mb-1">
-            <div className="w-2 h-2 rounded-full bg-brand-600" />
+            <img
+              src="/ZAP-logo.png"
+              alt="ZAP"
+              style={{
+                width: 20,      // Slightly bigger than 8px dot, matches ~21px font
+                height: 20,
+                objectFit: 'contain',
+                flexShrink: 0
+              }}
+            />
             <span className="font-display text-lg font-medium text-ink tracking-tight">ZAP</span>
           </Link>
           <p className="text-xs text-ink-dim mb-7 pl-4">Habit intelligence for Students.</p>
