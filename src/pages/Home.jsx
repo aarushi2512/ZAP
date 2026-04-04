@@ -29,7 +29,7 @@ export default function Home() {
           className="max-w-2xl"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-xs font-medium mb-6">
-            <Zap size={12} /> Hackanova 5.0 — Agentic AI Track
+            <Zap size={12} />  Habit Intelligence For Students.
           </div>
 
           <h1 className="font-display text-5xl font-light tracking-tight text-ink leading-tight mb-4">
