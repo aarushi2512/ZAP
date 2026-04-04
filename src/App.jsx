@@ -15,6 +15,7 @@ import TodayView     from './components/dashboard/TodayView'
 import ProgressView  from './components/dashboard/ProgressView'
 import InsightsView  from './components/dashboard/InsightsView'
 import AgentsView    from './components/dashboard/AgentsView'
+import AISolver      from './components/dashboard/AISolver'
 import TaskList      from './components/tasks/TaskList'
 
 // ── ZAP BLOCK 1: Feature Flag System ──────────────────────────────────────
@@ -76,8 +77,9 @@ function AppRoutes() {
         <Route index           element={<TodayView    />} />
         <Route path="tasks"    element={<TaskList     />} />
         <Route path="progress" element={<ProgressView />} />
-        <Route path="insights" element={<InsightsView />} />
-        <Route path="agents"   element={<AgentsView   />} />
+        <Route path="insights"  element={<InsightsView />} />
+        <Route path="agents"    element={<AgentsView   />} />
+        <Route path="ai-solver" element={<AISolver     />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
