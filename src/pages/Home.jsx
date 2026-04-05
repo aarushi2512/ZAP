@@ -56,10 +56,22 @@ export default function Home() {
             </Link>
           </div>
 
+          {/* Wrap your EXISTING title with this flex row */}
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <img
+              src="/ZAP-logo.png"
+              alt="ZAP"
+              className="w-7 h-7 object-contain"
+            />
+            {/* ← Paste your exact existing title here, unchanged */}
+            <span className="your-existing-title-classes">ZAP</span>
+          </div>
+
+          {/* Your features grid (unchanged) */}
           <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
             {[
               { icon: <Flame size={16} className="text-orange-500" />, label: 'Streak system', desc: 'Per-category + ice protection' },
-              { icon: <Zap size={16} className="text-brand-500" />,    label: 'XP & Levels',  desc: '100 levels, adaptive scoring' },
+              { icon: <Zap size={16} className="text-brand-500" />, label: 'XP & Levels', desc: '100 levels, adaptive scoring' },
               { icon: <BarChart2 size={16} className="text-purple-500" />, label: 'AI Insights', desc: 'Pattern analysis & nudges' },
             ].map((f, i) => (
               <motion.div
@@ -79,7 +91,14 @@ export default function Home() {
       </main>
 
       <footer className="text-center py-6 text-xs text-ink-dim border-t border-gray-100">
-        ZAP · St. Francis Institute of Technology 
+        <div className="flex items-center justify-center gap-1.5">
+          <img
+            src="/ZAP-logo.png"
+            alt="ZAP"
+            className="w-3.5 h-3.5 object-contain opacity-70"
+          />
+          <span>ZAP · St. Francis Institute of Technology</span>
+        </div>
       </footer>
     </div>
   )
