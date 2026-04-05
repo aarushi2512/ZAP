@@ -160,6 +160,13 @@ npm run preview
 
 ## Contributing
 
+<<<<<<< HEAD
+1. Fork the repo
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request 
+=======
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feature/your-feature`
 3. Commit your changes: `git commit -m 'Add feature'`
@@ -179,3 +186,4 @@ npm run preview
 - Icons by Lucide React
 - UI components with Framer Motion
 ```
+>>>>>>> 24e1fd7bca6768e4c8dc509d393404816c5e1a25

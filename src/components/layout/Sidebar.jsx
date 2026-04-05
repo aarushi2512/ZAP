@@ -12,7 +12,7 @@ const NAV = [
   { to: '/dashboard/insights',  icon: Lightbulb,       label: 'Insights',  end: false },
   { to: '/dashboard/agents',    icon: Bot,             label: 'Agents',    end: false },
   { to: '/dashboard/ai-solver', icon: Brain,           label: 'AI Solver', end: false },
-  ...(ZAP_ENABLED ? [{ to: '/dashboard/notes', icon: BookOpen, label: 'Notes', end: false }] : []),
+  { to: '/dashboard/notes',     icon: BookOpen,        label: 'Notes',     end: false },
 ]
 
 function SignOutModal({ onConfirm, onCancel }) {
@@ -111,17 +111,29 @@ export default function Sidebar({ onProfileOpen }) {
         height:'100vh', overflow:'hidden',
       }}>
         {/* Wordmark */}
-        <div style={{ padding:'22px 20px 18px', borderBottom:'1px solid #f1f5f9' }}>
-          <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-            <div style={{ width:8, height:8, borderRadius:'50%', background:'#14b8a6' }} />
+        {/* Wordmark */}
+        <div style={{ padding: '22px 20px 18px', borderBottom: '1px solid #f1f5f9' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {/* ← Your logo image */}
+            <img
+              src="/ZAP-logo.png"
+              alt="ZAP"
+              style={{
+                width: 20,      // Slightly bigger than 8px dot, matches ~21px font
+                height: 20,
+                objectFit: 'contain',
+                flexShrink: 0
+              }}
+            />
+            {/* Optional: Keep text if you want logo + text, or remove this span to show logo only */}
             <span style={{
-              fontFamily:'Fraunces, Georgia, serif',
-              fontSize:21, color:'#0f172a', fontWeight:400, letterSpacing:'-0.02em',
+              fontFamily: 'Fraunces, Georgia, serif',
+              fontSize: 21, color: '#0f172a', fontWeight: 400, letterSpacing: '-0.02em',
             }}>
               ZAP
             </span>
           </div>
-          <p style={{ fontSize:11, color:'#94a3b8', marginTop:2, paddingLeft:16 }}>
+          <p style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, paddingLeft: 16 }}>
             Habit intelligence
           </p>
         </div>
