@@ -1,9 +1,9 @@
 const CAT_ICONS = {
-  work:          '💼',
-  health:        '💪',
-  learning:      '📚',
-  relationships: '🤝',
-  personal:      '⭐',
+  work:          '',
+  health:        '',
+  learning:      '',
+  relationships: '',
+  personal:      '',
 }
 
 export default function StreakIcon({ category, streak = 0 }) {
