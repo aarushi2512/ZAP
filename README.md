@@ -186,4 +186,3 @@ npm run preview
 - Icons by Lucide React
 - UI components with Framer Motion
 ```
->>>>>>> 24e1fd7bca6768e4c8dc509d393404816c5e1a25
